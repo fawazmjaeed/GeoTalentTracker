@@ -31,17 +31,22 @@ function renderMarkers(data) {
 
     if (matchesKeyword && matchesJob) {
       const marker = L.marker([item.lat, item.lon], {
-        icon: L.icon({
-          iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png',
-          iconSize: [32, 32]
-        })
-      }).addTo(map);
+  	icon: L.icon({
+    	iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png',
+    	iconSize: [32, 32]
+  	})
+	}).addTo(map);
 
-      marker.bindPopup(`
-        <b>${item.job}</b><br>
-        ${item.exp} years<br>
-        <a href="${item.url}" target="_blank">Profile</a>
-      `);
+// Tooltip showing job title (always visible)
+marker.bindTooltip(item.job, { permanent: true, direction: 'right', offset: [10, 0] });
+
+// Optional: Keep the full popup on click
+marker.bindPopup(`
+  <b>${item.job}</b><br>
+  ${item.exp} years<br>
+  <a href="${item.url}" target="_blank">Profile</a>
+`);
+
 
       markers.push(marker);
     }
