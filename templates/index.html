@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeoTalentTracker</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <style>
+    #map { height: 90vh; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .search-container {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search by keyword...">
+    <select id="jobFilter"><option value="">All Job Titles</option></select>
+    <label>Experience:
+      <input type="range" id="expSlider" min="0" max="50" value="0" step="1">
+      <span id="expValue">0+</span> yrs
+    </label>
+    <label>Within:
+      <input type="number" id="radiusInput" placeholder="km" value="100" min="1">
+    </label>
+  </div>
+  <div id="map"></div>
+
+  <!-- ✅ Link to external JavaScript file -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
