@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 DATA_FILE = 'static/uploads/data.json'
@@ -23,7 +23,7 @@ def submit():
         "lat": data["lat"],
         "lon": data["lon"],
         "job": data["job"],
-        "exp": int(data["exp"]),
+        "exp": data["exp"],
         "url": data["url"]
     }
 
@@ -33,7 +33,6 @@ def submit():
             existing = json.load(f)
 
     existing.append(new_entry)
-
     with open(DATA_FILE, 'w') as f:
         json.dump(existing, f, indent=2)
 

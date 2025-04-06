@@ -1,2 +1,23 @@
-{
-}
+[
+  {
+    "lat": 11.965164737656766,
+    "lon": 75.2882605791092,
+    "job": "IT Manager",
+    "exp": 16,
+    "url": "https://www.linkedin.com/in/fawazmajeed/"
+  },
+  {
+    "lat": 24.23694483390071,
+    "lon": 17.929687500000004,
+    "job": "Test jobs",
+    "exp": 10,
+    "url": "test.com"
+  },
+  {
+    "lat": 81.19901665610152,
+    "lon": -76.99218750000001,
+    "job": "IT Manager",
+    "exp": 22,
+    "url": "test.co"
+  }
+]

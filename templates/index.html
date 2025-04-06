@@ -4,11 +4,16 @@
   <title>GeoTalentTracker</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
   <style>
-    #map { height: 90vh; }
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    #map { height: 90vh; width: 100%; }
     .search-container {
       padding: 10px;
       display: flex;
@@ -29,9 +34,10 @@
       <input type="number" id="radiusInput" placeholder="km" value="100" min="1">
     </label>
   </div>
+
   <div id="map"></div>
 
-  <!-- ✅ Link to external JavaScript file -->
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>
