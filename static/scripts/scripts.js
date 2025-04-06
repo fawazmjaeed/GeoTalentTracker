@@ -49,9 +49,6 @@ function renderMarkers(data) {
 }
 
 
-
-
-
 // Dropdown population
 function populateJobDropdown(data) {
   const jobSet = new Set(data.map(d => d.job));
@@ -120,3 +117,30 @@ function getDistance(lat1, lon1, lat2, lon2) {
 
   return R * 2 * Math.asin(Math.sqrt(a));
 }
+
+// Locate Me functionality
+document.getElementById('locateMe').addEventListener('click', () => {
+  if (!navigator.geolocation) {
+    alert("Geolocation is not supported by your browser.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(position => {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    // Center the map and place a temporary marker
+    map.setView([lat, lon], 12);
+    const marker = L.circleMarker([lat, lon], {
+      radius: 8,
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5
+    }).addTo(map).bindPopup("You're here! Click on the map to drop a pin.").openPopup();
+
+    // Optional: remove the marker after a few seconds
+    setTimeout(() => map.removeLayer(marker), 5000);
+  }, () => {
+    alert("Unable to retrieve your location.");
+  });
+});

@@ -4,21 +4,21 @@
   <title>GeoTalentTracker</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-
-  <!-- Leaflet JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-
   <style>
-    body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    #map { height: 90vh; width: 100%; }
+    #map { height: 90vh; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     .search-container {
       padding: 10px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -33,11 +33,9 @@
     <label>Within:
       <input type="number" id="radiusInput" placeholder="km" value="100" min="1">
     </label>
+    <button id="locateMe">📍 Locate Me</button>
   </div>
-
   <div id="map"></div>
-
-  <!-- Scripts -->
   <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>
